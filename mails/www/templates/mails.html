@@ -1,0 +1,23 @@
+
+<ion-view view-title="Mails">
+
+  <ion-content>
+
+    <div class="buttons" side="right">
+      <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="shouldShowDeleteMail = !shouldShowDeleteMail"></button>
+      <button class="button button-icon icon ion-ios-plus-outline"
+              ng-click="showNewMail()"></button>
+    </div>
+    <ion-list show-delete=shouldShowDeleteMail>
+      <ion-item ng-repeat="mail in mails" href="#/app/mail/{{mail._id}}" ng-click="selectMail(mail)">
+        {{mail.subject}}
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="deleteMail(mail)">
+        </ion-delete-button>
+        <button class="button button-clear icon ion-arrow-move" ng-click="showMove(mail)">
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
